@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 
 @Module({
-  imports: [],
+  imports: [CacheModule.register()],
 })
 export class AppModule {}
