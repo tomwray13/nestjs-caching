@@ -1,5 +1,6 @@
 import { HttpService } from '@nestjs/axios';
-import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 
 @Injectable()
@@ -24,6 +25,6 @@ export class PokemonService {
       `https://pokeapi.co/api/v2/pokemon/${id}`,
     );
     await this.cacheService.set(id.toString(), data);
-    return await `${data.name}`;
+    return `${data.name}`;
   }
 }
